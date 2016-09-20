@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## from https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh
+
 # make me current
 sudo apt-get update && sudo apt-get upgrade -y 
 
@@ -40,10 +42,14 @@ git checkout dev
 ./setup.sh 
 
 # put your config into it
-nano my.cfg
+#nano my.env
+curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
 
 # make autoboot
-sudo nano /etc/init.d/nightscout
+#sudo nano /etc/init.d/nightscout
+cd
+curl -o nightscout https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/nightscout
+sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
