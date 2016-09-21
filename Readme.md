@@ -1,6 +1,6 @@
 __Tested with:__ 
 
-- Raspberry Pi 3
+- Raspberry Pi 3: Problems with Reports, Errors in mongoDB.log, mongoDB in version > 3 required, only version < 3 available for raspi, src build did not succedd...
 
 __Brief:__
 
