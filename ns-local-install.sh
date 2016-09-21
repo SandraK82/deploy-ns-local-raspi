@@ -54,3 +54,5 @@ sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
 sudo update-rc.d nightscout defaults
+
+nano /home/pi/cgm-remote-monitor/my.env
