@@ -1,6 +1,6 @@
 __Tested with:__ 
 
-- Raspberry Pi 3: Problems with Reports, Errors in mongoDB.log, mongoDB in version > 3 required, only version < 3 available for raspi, src build did not succedd...
+- Raspberry Pi 3: Evrything works nicely now
 
 __Brief:__
 
@@ -10,10 +10,17 @@ __Usage:__
 
 `curl -s https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh | bash -`
 
-after running the script you will have a running nightscout local installation and an open editor with your config for nightscout. You need to configure at least the last line in the file:
-API_SECRET=[MEIN PASSWORT]
-And put an at least 12 characters long Passwort there!
+after running the script you will have a running nightscout local installation and an open editor with your config for nightscout. You need to configure at least the lines at tht top of the file:
+CUSTOM_TITLE=mysitename_without_spaces
+API_SECRET=my_12_character_passwort
+
+Put your personal password (at least 12 characters long) and teh name of your site (just for Display) there!
 Please note that you _CAN_NOT_ have any spaces in your configuration. To separate values use %20 instead. For the CUSTOM_TITLE Parameter this does not work! 
+
+__Updates:__
+
+I forked the current dev-branch of nightscout/cgm-remote-monitor and changed the mongodb compatibility problems. Now it runs smoothly with mongodb 2.x on a raspi!
+Maybe the pull request gets accepted soon. As soon as I´m notified, I will change the script again to use the current dev-branch again.
 
 __With help from:__
 
