@@ -19,8 +19,9 @@ Please note that you _CAN_NOT_ have any spaces in your configuration. To separat
 
 __Updates:__
 
-I forked the current dev-branch of nightscout/cgm-remote-monitor and changed the mongodb compatibility problems. Now it runs smoothly with mongodb 2.x on a raspi!
-Maybe the pull request gets accepted soon. As soon as I´m notified, I will change the script again to use the current dev-branch again.
+~~I forked the current dev-branch of nightscout/cgm-remote-monitor and changed the mongodb compatibility problems. Now it runs smoothly with mongodb 2.x on a raspi!
+Maybe the pull request gets accepted soon. As soon as I´m notified, I will change the script again to use the current dev-branch again.~~
+The patches for mongo2.x compatibility are now merged back into the official deb branch.
 
 __With help from:__
 

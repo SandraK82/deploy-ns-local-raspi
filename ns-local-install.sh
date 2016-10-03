@@ -33,7 +33,7 @@ sudo systemctl status mongodb.service
 # go home
 cd
 # get ns
-git clone https://github.com/SandraK82/cgm-remote-monitor.git
+git clone https://github.com/nightscout/cgm-remote-monitor.git
 cd cgm-remote-monitor/
 # switch to dev
 git checkout dev
