@@ -11,7 +11,7 @@ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 # install node
 sudo apt-get install -y nodejs 
 
-# prekäre npm
+# prepare npm
 sudo apt-get install npm
 sudo npm cache clean -f
 sudo npm install npm -g
