@@ -18,7 +18,7 @@ sudo npm install npm -g
 sudo npm install n -g
 
 # select matching node
-sudo n 4.5
+sudo n 4.6
 
 # install the mongodb 2.x from apt for now
 sudo apt-get install mongodb-server
