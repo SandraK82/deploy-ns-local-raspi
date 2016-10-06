@@ -22,6 +22,7 @@ then
   rm node-v6.7.0-linux-armv6l.tar.xz
   rm -r node-v6.7.0-linux-armv6l
 else
+  echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
   sudo apt-get install -y nodejs

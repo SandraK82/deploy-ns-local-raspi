@@ -1,6 +1,7 @@
 __Tested with:__
 
 - Raspberry Pi 3: Everything works nicely now
+- Raspberry Pi Model B: Working with Raspian Jessie Lite
 
 __Brief:__
 
