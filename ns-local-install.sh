@@ -72,7 +72,7 @@ sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
-sudo update-rc.d nightscout defaults
+sudo insserv -d nightscout
 
 echo "deploy nightscout on raspi done :)"
 echo "Dont forget to edit: /home/pi/cgm-remote-monitor/my.env"
