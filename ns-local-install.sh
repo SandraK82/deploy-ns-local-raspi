@@ -73,7 +73,4 @@ sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
 sudo update-rc.d nightscout defaults
 
-# start editor
-nano /home/pi/cgm-remote-monitor/my.env
-
-echo "done, enjoy nightscout on raspi :)"
+echo "deploy nightscout on raspi done :)"
