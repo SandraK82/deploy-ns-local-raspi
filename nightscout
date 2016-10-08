@@ -20,7 +20,7 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 DAEMON_PATH="/home/pi/cgm-remote-monitor"
 
 DAEMON=env
-DAEMONOPTS="$(cat my.env) PORT=1337 node server.js"
+DAEMONOPTS="$(cat /home/pi/cgm-remote-monitor/my.env) PORT=1337 node server.js"
 NAME=nightscout
 DESC="nightscout pi local script"
 PIDFILE=/var/run/$NAME.pid
