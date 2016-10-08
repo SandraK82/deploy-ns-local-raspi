@@ -62,8 +62,7 @@ git checkout dev
 ./setup.sh
 
 # put your config into it
-curl -o my.env https://raw.githubusercontent.com/DessertHunter/deploy-ns-local-raspi/master/my.env
-# curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
+curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
 
 # make autoboot
 cd
