@@ -61,7 +61,8 @@ git checkout dev
 ./setup.sh
 
 # put your config into it
-curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
+curl -o my.env https://raw.githubusercontent.com/DessertHunter/deploy-ns-local-raspi/master/my.env
+# curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
 
 # make autoboot
 cd
@@ -72,4 +73,7 @@ sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
 sudo update-rc.d nightscout defaults
 
+# start editor
 nano /home/pi/cgm-remote-monitor/my.env
+
+echo "done, enjoy nightscout on raspi :)"
