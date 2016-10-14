@@ -8,6 +8,25 @@ __Brief:__
 
 Use this script to setup a complete local running nightscout instance with a local mongoDB instance
 
+
+__Prerequisites__
+
+1. Make sure your Raspberry kernel is up to date 
+   `$ sudo apt-get install rpi-update && sudo rpi-update `
+   and reboot.
+
+2. Configure your Rasberry Pi
+   `$ sudo raspi-config`
+```   
+1. Expand Filesystem   ==> Make use of the whole SD-CARD
+2. Change User Password     	
+3. Bootoptions ==> Choose what you want
+4. Wait for Network at Boot ==> Set to No
+5.  Internationalisation Options => Change Locale, Timezone, Keyboard Layout, Wi-Fi country to your needs
+A2. Hostname ==> Set your hostname. This will be used for the URL of your Nightscout 
+A4. SSH ==> Enable SSH for remote access
+```
+
 __Usage:__
 
  1. open console on your raspi eg `ssh pi@192.168.10.4` default-password `raspberry` and run ns-local-install script:
@@ -44,10 +63,14 @@ The patches for mongo2.x compatibility are now merged back into the official dev
 
 __With help from:__
 
-https://c-ville.gitbooks.io/test/content/
+- https://c-ville.gitbooks.io/test/content/
+- http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
+- https://www.einplatinencomputer.com/raspberry-pi-node-js-installieren/
+- contributions from PieterGit
 
-http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
-
-https://www.einplatinencomputer.com/raspberry-pi-node-js-installieren/
-
-contributions from PieterGit
+__Whishlist/To Do:__
+- seperate username/password for Mongo
+- Nginx to use for https / letsencrypt certificate
+- Script to create wifi hotspot on the raspberry pi
+- Always install latest Node (now 6.8.0 instead of 6.7.0 what is being installed)
+- ...
