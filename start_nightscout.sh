@@ -3,7 +3,7 @@ cd /home/pi/cgm-remote-monitor
 
 # See https://github.com/nightscout/cgm-remote-monitor#environment for a description of the fields
 # Required by Nightscout, please edit
-export CUSTOM_TITLE=mysitename_without_spaces
+export CUSTOM_TITLE="my site name"
 export API_SECRET=my_12_characters_or_more_password
 
 # 
