@@ -79,7 +79,7 @@ git checkout master
 
 # make autoboot
 cd
-curl -o nightscout https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/nightscout
+curl -o nightscout https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/nightscout
 sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
