@@ -55,7 +55,15 @@ sudo systemctl status mongodb.service
 cd
 
 # get start script
-curl -o start_nightscout.sh https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/start_nightscout.sh
+while true; do
+    read -p "Do you want to use mmol or mg? " unit
+    case $uni in
+        mmol) curl -o start_nightscout.sh https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
+        mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
+        * ) echo "Please answer mmol or mg.";;
+esac
+done
+
 chmod +rx start_nightscout.sh
 
 git clone https://github.com/nightscout/cgm-remote-monitor.git
