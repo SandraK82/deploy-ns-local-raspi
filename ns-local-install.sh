@@ -31,8 +31,12 @@ else
 fi
 
 
-# prepare npm
-sudo apt-get install -y npm
+# install dependencies 
+# get git, mongodb 2.x from apt for now,and npm
+# optional extra packages to easily debug stuff or to do better maintenance
+EXTRAS="etckeeper tcsh lsof"
+sudo apt-get install --assume-yes git mongodb-server npm $EXTRAS
+
 sudo npm cache clean -f
 sudo npm install npm -g
 sudo npm install n -g
@@ -40,8 +44,6 @@ sudo npm install n -g
 # select matching node
 sudo n 4.6
 
-# install the mongodb 2.x from apt for now
-sudo apt-get install -y mongodb-server
 # enable mongo
 sudo systemctl enable mongodb.service
 # check mongo status
@@ -51,8 +53,11 @@ sudo systemctl status mongodb.service
 
 # go home
 cd
-# get ns
-sudo apt-get install --assume-yes git
+
+# get start script
+curl -o start_nightscout.sh https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/start_nightscout.sh
+
+
 git clone https://github.com/nightscout/cgm-remote-monitor.git
 
 # switching to cgm-remote-monitor directory
@@ -63,8 +68,6 @@ git checkout master
 # setup ns
 ./setup.sh
 
-# put your config into it
-curl -o start_nightscout.sh https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/start_nightscout.sh
 
 # make autoboot
 cd
