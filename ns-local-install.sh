@@ -2,6 +2,8 @@
 
 ## from https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh
 
+## TODO: set /etc/domainname
+
 # make me current
 sudo apt-get update && sudo apt-get upgrade -y
 
@@ -55,18 +57,18 @@ git clone https://github.com/nightscout/cgm-remote-monitor.git
 
 # switching to cgm-remote-monitor directory
 cd cgm-remote-monitor/
-# switch to dev
-git checkout dev
+# switch to master (latest stable version)
+git checkout master
 
 # setup ns
 ./setup.sh
 
 # put your config into it
-curl -o my.env https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/my.env
+curl -o start_nightscout.sh https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/start_nightscout.sh
 
 # make autoboot
 cd
-curl -o nightscout https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/nightscout
+curl -o nightscout https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/nightscout
 sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
@@ -74,4 +76,15 @@ sudo /etc/init.d/nightscout status
 sudo insserv -d nightscout
 
 echo "deploy nightscout on raspi done :)"
-echo "Dont forget to edit: /home/pi/cgm-remote-monitor/my.env"
+echo "Dont forget to edit: /home/pi/cgm-remote-monitor/start_nightscout.sh"
+echo "Nightscout logging can be found at: /var/log/openaps/nightscout.log"
+
+# Setup basis oref0 stuff
+# https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-2/oref0-setup.html
+curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
+
+mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
+
+
+echo "Please continue with step 2 of https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-2/oref0-setup.html"
+echo "cd && ~/src/oref0/bin/oref0-setup.sh"
