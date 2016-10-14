@@ -56,7 +56,7 @@ cd
 
 # get start script
 curl -o start_nightscout.sh https://raw.githubusercontent.com/PieterGit/deploy-ns-local-raspi/master/start_nightscout.sh
-
+chmod +rx start_nightscout.sh
 
 git clone https://github.com/nightscout/cgm-remote-monitor.git
 
