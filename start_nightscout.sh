@@ -10,7 +10,7 @@ export API_SECRET=my_12_characters_or_more_password
 # Required by Nightscout
 # Used for building links to your sites api, ie pushover callbacks, usually the URL of your Nightscout site 
 # TODO: get the FQDN here
-BASE_URL="http://`hostname`:1337/
+BASE_URL="http://`hostname`:1337/"
 
 # Required by Nightscout
 # Your mongo uri, for example: mongodb://sally:sallypass@ds099999.mongolab.com:99999/nightscout
