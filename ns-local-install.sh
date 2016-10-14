@@ -90,6 +90,14 @@ echo "deploy nightscout on raspi done :)"
 echo "Dont forget to edit: /home/pi/cgm-remote-monitor/start_nightscout.sh"
 echo "Nightscout logging can be found at: /var/log/openaps/nightscout.log"
 
+while true; do
+    read -p "Do you wish to install openAPS basic oref0? " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+    esac
+done
+
 # Setup basis oref0 stuff
 # https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-2/oref0-setup.html
 curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
