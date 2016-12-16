@@ -27,11 +27,14 @@ case $i in
     INSTALL_OREF0="${i#*=}"
     shift # past argument=value
     ;;
+    *)
     # unknown option
     echo "Option ${i#*=} unknown"
     ;;
 esac
 done
+
+echo TEST
 
 if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
     echo ""
@@ -63,7 +66,7 @@ if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
 fi
 
 
-if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0"]]; then
+if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
     echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]] [--units=[mmol|mg]]"
     read -p "Start interactive setup? [Y]/n " -r
     if [[ $REPLY =~ ^[Nn]$ ]]; then
