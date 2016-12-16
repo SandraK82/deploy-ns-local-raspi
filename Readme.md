@@ -1,15 +1,21 @@
-__Tested with:__
-
-- Raspberry Pi 3 (rpi3): Everything works nicely now
-- Raspberry Pi 1 Model B (rpi1): Working with Raspian Jessie Lite with PIXEL (Release date: 2016-09-23)
-- Raspberry Pi Zero (rpi0): Working with Raspian Jessie Lite (Release date: 2016-09-23)
-
 __Brief:__
 
-Use this script to setup a complete local running nightscout instance with a local mongoDB instance
+Use this script to setup a complete local running Nightscout instance. This script can either install:
+- a local MongoDB instance or
+- work without MongoDB and use static OpenAPS report files (recommended for tiny rigs) 
 
+__Tested with:__
+
+- Raspberry Pi Zero (rpi0): Working with Raspian Jessie Lite (Release date: 2016-09-23)
+- Raspberry Pi 1 Model B (rpi1): Working with Raspian Jessie Lite with PIXEL (Release date: 2016-09-23)
+- Raspberry Pi 3 (rpi3): Everything works nicely with or without PIXEL
 
 __Prerequisites__
+
+0. Install Raspberry Pi SD kart with Rasbian. Download Raspbian at https://www.raspberrypi.org/downloads/raspbian/
+	You can you choose to use:
+	- Rasbian Jessie with PIXEL: This has a graphical user interface, called PIXEL desktop
+	- Raspbian Jessie Lite: A minimal image based on Debian Jessie. No desktop included.
 
 1. Make sure your Raspberry kernel is up to date 
    `$ sudo apt-get install rpi-update && sudo rpi-update `
@@ -52,14 +58,19 @@ __Troubleshooting:__
 
 __Changelog:__
 
-~~I forked the current dev-branch of nightscout/cgm-remote-monitor and changed the mongodb compatibility problems. Now it runs smoothly with mongodb 2.x on a raspi!
-Maybe the pull request gets accepted soon. As soon as I´m notified, I will change the script again to use the current dev-branch again.~~
-The patches for mongo2.x compatibility are now merged back into the official dev branch.
+2016-11-13:
+
+- upgrade nightscout to 0.9.1-dev-20161112, in order to support openaps-storage, see https://github.com/nightscout/cgm-remote-monitor/pull/2114
 
 2016-10-14: 
 
-- change to nightscout 0.9.0 stable Grilled Cheese)
+- change to nightscout 0.9.0 stable ()Grilled Cheese)
 - add start_nightscout.sh instead of my.env
+
+2016-09:
+~~I forked the current dev-branch of nightscout/cgm-remote-monitor and changed the mongodb compatibility problems. Now it runs smoothly with mongodb 2.x on a raspi!
+Maybe the pull request gets accepted soon. As soon as I´m notified, I will change the script again to use the current dev-branch again.~~
+The patches for mongo2.x compatibility are now merged back into the official dev branch.
 
 __With help from:__
 
