@@ -96,11 +96,11 @@ if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0"
 	echo "mongodb: Nightscout will use a MongoDB"
 	while true; do
     read -p "What storage do you want to use? Choose [mongodb] / openaps " storage
-    case $unit in
-		"") STORAGE="mongodb" ; break;;
-        mongodb) STORAGE="mongodb"; break;;
+    case $storage in
+		"") STORAGE="mongo" ; break;;
+        mongodb) STORAGE="mongo"; break;;
         openaps) STORAGE="openaps"; break;;
-        * ) echo "Please answer mongodb or openaps. ";;
+        * ) echo "Please answer mongo or openaps. ";;
 	esac
 	done
 
@@ -147,7 +147,7 @@ fi
 EXTRAS="etckeeper tcsh lsof"
 sudo apt-get install --assume-yes git npm $EXTRAS
 
-if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
+if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
 	sudo apt-get install --assume-yes git mongodb-server
 	# enable mongo
 	sudo systemctl enable mongodb.service
