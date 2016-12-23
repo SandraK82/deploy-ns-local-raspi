@@ -8,7 +8,7 @@ __Tested with:__
 
 - Raspberry Pi Zero (rpi0): Working with Raspian Jessie Lite (Release date: 2016-09-23)
 - Raspberry Pi 1 Model B (rpi1): Working with Raspian Jessie Lite with PIXEL (Release date: 2016-09-23)
-- Raspberry Pi 3 (rpi3): Everything works nicely with or without PIXEL
+- Raspberry Pi 3 (rpi3): Everything works nicely with or without PIXEL (Release date: 2016-09-23 and 2016-11-25)
 
 __Prerequisites__
 
@@ -29,15 +29,37 @@ __Prerequisites__
 3. Bootoptions ==> Choose what you want
 4. Wait for Network at Boot ==> Set to No
 5.  Internationalisation Options => Change Locale, Timezone, Keyboard Layout, Wi-Fi country to your needs
+7. Advanced Options
 A2. Hostname ==> Set your hostname. This will be used for the URL of your Nightscout 
 A4. SSH ==> Enable SSH for remote access
 ```
 
+3. Tweak your Raspberry Pi.
+
+See for example: https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html for information on setting up your Raspberry Pi
+- Configure WiFi Settings
+- Wifi reliability tweaks [optional]
+- Watchdog [optional]
+- Disable HDMI to conserve power [optional]
+- Configure Bluetooth Low Energy tethering [optional]
+
 __Usage:__
 
- 1. open console on your raspi eg `ssh pi@192.168.10.4` default-password `raspberry` and run ns-local-install script:
+ 1. open console on your raspi eg `ssh pi@192.168.10.4` default-password `raspberry` and run ns-local-install script for an interactive install:
     `curl -s https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh | bash -`
     relax and drink some :coffee: - script runtime *over 1.5 hour* on clean and fresh raspi.
+	
+	You can also use a non-interactive install
+	```
+	mkdir src 
+    cd src
+    git clone https://github.com/SandraK82/deploy-ns-local-raspi.git
+	cd deploy-ns-local-raspi
+	```
+	
+	You can then use `bash ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongodb]] [--oref0=[yes|no]] [--units=[mmol|mg]]`
+	For example: `bash ns-local-install.sh --mongo=yes --units=mmol --storage=mongo --oref0=yes`
+	
  2. after running the script you will have a running nightscout local installation. Now open editor with your config for nightscout.
     `nano /home/pi/cgm-remote-monitor/start-nightscout.sh`
      You need to configure at least the lines at the top of the file:

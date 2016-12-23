@@ -34,8 +34,6 @@ case $i in
 esac
 done
 
-echo TEST
-
 if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
     echo ""
     echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
@@ -43,16 +41,16 @@ if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
     INSTALL_MONGO="" # to force a Usage prompt
 fi
 
-if ! [[ ${UNITS,,} =~ "mmol" || ${STORAGE,,} =~ "mg" ]]; then
+if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
     echo ""
     echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
     echo
     UNITS="" # to force a Usage prompt
 fi
 
-if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongodb" ]]; then
+if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
     echo ""
-    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongodb' (MongoDB backend store)"
+    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
     echo
     STORAGE="" # to force a Usage prompt
 fi
@@ -67,7 +65,7 @@ fi
 
 
 if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
-    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]] [--units=[mmol|mg]]"
+    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]]"
     read -p "Start interactive setup? [Y]/n " -r
     if [[ $REPLY =~ ^[Nn]$ ]]; then
         exit
@@ -208,10 +206,10 @@ case $OREF0 in
 esac
 
 # Setup basis oref0 stuff
-# https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-2/oref0-setup.html
+# https://openaps.readthedocs.io/en/master/docs/walkthrough/phase-2/oref0-setup.html
 curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
 
 mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
 
-echo "Please continue with step 2 of https://openaps.readthedocs.io/en/dev/docs/walkthrough/phase-2/oref0-setup.html"
+echo "Please continue with step 2 of https://openaps.readthedocs.io/en/master/docs/walkthrough/phase-2/oref0-setup.html"
 echo "cd && ~/src/oref0/bin/oref0-setup.sh"
